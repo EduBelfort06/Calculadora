@@ -1,0 +1,27 @@
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .fundo{
+            background-image: linear-gradient( 45deg, black, blue);
+            height: 100vh;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        .calculadora{
+            position: absolute;
+            background-color: rgba(45, 183, 82, 0.364);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+        }

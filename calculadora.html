@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="calculadora.css">
+    <script src="calculadora.js"></script>
+</head>
+<body>
+    <div class="fundo">
+        <h1>DudsBelfort</h1>
+        <h2>Calculadora</h2>
+        <div class="calculadora">
+            <h1>Calculadora</h1>
+            <p id= "resultado">resultado</p>
+            <table>
+            <tr>
+                <td><button onclick="adicionarValor('C')">C</button></td>
+                <td><button onclick="adicionarValor('<')"><</button></td>
+                <td><button onclick="adicionarValor('/')">/</button></td>
+                <td><button onclick="adicionarValor('x')">x</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="adicionarValor('7')">7</button></td>
+                <td><button onclick="adicionarValor('8')">8</button></td>
+                <td><button onclick="adicionarValor('9')">9</button></td>
+                <td><button onclick="adicionarValor('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="adicionarValor('4')">4</button></td>
+                <td><button onclick="adicionarValor('5')">5</button></td>
+                <td><button onclick="adicionarValor('6')">6</button></td>
+                <td><button onclick="adicionarValor('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="adicionarValor('1')">1</button></td>
+                <td><button onclick="adicionarValor('2')">2</button></td>
+                <td><button onclick="adicionarValor('3')">3</button></td>
+                <td rowspan="2"><button onclick="calcularResultado()" style="height: 106px;">=</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick="adicionarValor('0')" style="width: 106px;">0</button></td>
+                <td><button onclick="adicionarValor('.')">.</button></td>
+            </tr>
+
+            </table>
+        </div>
+    </div>
+</body>
+</html>
