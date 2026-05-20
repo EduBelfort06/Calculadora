@@ -110,3 +110,62 @@ button:active {
 .btn-zero {
     width: 108px;
 }
+
+
+.rodape {
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.rodape:hover {
+    opacity: 0.9; 
+}
+
+
+
+
+/*  Container que força a calculadora e a imagem a ficarem lado a lado */
+.conteudo-principal {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 40px; 
+    width: 100%;
+    max-width: 800px; 
+}
+
+/* Modificação na sua classe antiga: removemos a margem para o Flexbox controlar */
+.calculadora {
+    background-color: rgba(53, 219, 219, 0.7);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.37);
+    width: 270px;
+    margin: 0; /* Alterado de '20px 0' para '0' */
+}
+
+
+/*.container-imagem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imagem-lateral {
+    max-width: 200px; 
+    height: auto; 
+    border-radius: 15px; 
+    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Opcional
+@media (max-width: 600px) {
+    .conteudo-principal {
+        flex-direction: column;
+        gap: 20px;
+    }
+} */
