@@ -1,27 +1,112 @@
-        body{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        .fundo{
-            background-image: linear-gradient( 45deg, black, blue);
-            height: 100vh;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-        .calculadora{
-            position: absolute;
-            background-color: rgba(45, 183, 82, 0.364);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+.fundo {
+    background-image: linear-gradient(100deg, #000000, #b31a1a);
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.titulo-topo {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-            width: 300px;
-            margin: 50px auto;
-            padding: 20px;
-            border-radius: 20px;
-            text-align: center;
-        }
+.titulo-topo h1 {
+    font-size: 2rem;
+    opacity: 0.8;
+}
+
+.titulo-topo h2 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 0.6;
+}
+
+.calculadora {
+    background-color: rgba(45, 183, 160, 0.992);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.37);
+    width: 270px;
+}
+
+.visor {
+    background-color: rgba(250, 250, 250, 0.793);
+    height: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 15px;
+    overflow-x: auto;
+}
+
+#resultado {
+    color: #000000;
+    font-size: 1.6rem;
+    white-space: nowrap;
+}
+
+table {
+    width: 100%;
+    border-spacing: 8px;
+}
+
+button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.btn-op {
+    background-color: #fe9505;
+}
+
+.btn-op:hover {
+    background-color: #ffaa33;
+}
+
+.btn-igual {
+    background-color: #218838;
+    height: 108px;
+    width: 50px;
+}
+
+.btn-igual:hover {
+    background-color: #28a745;
+}
+
+.btn-zero {
+    width: 108px;
+}
