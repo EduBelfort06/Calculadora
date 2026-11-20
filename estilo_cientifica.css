@@ -1,0 +1,90 @@
+/* Layout dos modos padrão e científico. Cores e botões base ficam em estilo.css. */
+
+.controles-modo {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.btn-modo {
+    background-color: transparent;
+    color: #0d2e2e;
+    border: 1px solid rgba(13, 46, 46, 0.35);
+    height: 32px;
+    font-size: 0.85rem;
+    padding: 0 15px;
+}
+
+.btn-modo:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.btn-modo.active {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+}
+
+.calculadora {
+    width: min(320px, 100%);
+    transition: width 0.3s ease-out;
+}
+
+.calculadora.modo-cientifico {
+    width: min(650px, 100%);
+}
+
+.calc-body {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.painel-cientifica, .teclado {
+    flex: 1;
+    min-width: 0;
+}
+
+.scientific-pad, .numeric-pad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.scientific-pad button, .numeric-pad button {
+    width: 100%;
+    height: 48px;
+    font-size: 1rem;
+}
+
+/* ÷ × − + = são glifos pequenos no Arial */
+.numeric-pad .btn-op, .numeric-pad .btn-igual {
+    font-size: 1.35rem;
+}
+
+.numeric-pad .btn-igual {
+    grid-row: span 2;
+    height: 100%;
+}
+
+.numeric-pad .btn-zero {
+    grid-column: span 2;
+}
+
+#btn-shift[aria-pressed="true"] {
+    background-color: #e9f2f2;
+    color: #1a1a1a;
+}
+
+.visor {
+    height: 80px;
+    margin-bottom: 12px;
+    padding: 0 18px;
+}
+
+#resultado { font-size: 1.8rem; }
+
+@media (max-width: 700px) {
+    .calc-body { flex-direction: column; }
+}

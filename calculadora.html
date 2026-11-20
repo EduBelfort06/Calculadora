@@ -8,52 +8,92 @@
     <link rel="icon" type="image/png" href="img/favicon.png">
 
     <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="estilo_cientifica.css">
     <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="fundo">
+    <div class="fundo"> 
         <header class="titulo-topo">
             <h1>DudsBelfort</h1>
             <h2>Calculadora</h2>
         </header>
 
-        <div class="calculadora">
-            <div class="visor">
-                <p id="resultado"></p>
-            </div>
-            <table>
-                <tr>
-                    <td><button class="btn-op" onclick="limpar()">C</button></td>
-                    <td><button class="btn-op" onclick="apagarUltimo()">&lt;</button></td>
-                    <td><button class="btn-op" onclick="adicionarValor('/')">/</button></td>
-                    <td><button class="btn-op" onclick="adicionarValor('*')">x</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick="adicionarValor('7')">7</button></td>
-                    <td><button onclick="adicionarValor('8')">8</button></td>
-                    <td><button onclick="adicionarValor('9')">9</button></td>
-                    <td><button class="btn-op" onclick="adicionarValor('-')">-</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick="adicionarValor('4')">4</button></td>
-                    <td><button onclick="adicionarValor('5')">5</button></td>
-                    <td><button onclick="adicionarValor('6')">6</button></td>
-                    <td><button class="btn-op" onclick="adicionarValor('+')">+</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick="adicionarValor('1')">1</button></td>
-                    <td><button onclick="adicionarValor('2')">2</button></td>
-                    <td><button onclick="adicionarValor('3')">3</button></td>
-                    <td rowspan="2"><button class="btn-igual" onclick="calcularResultado()">=</button></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><button class="btn-zero" onclick="adicionarValor('0')">0</button></td>
-                    <td><button onclick="adicionarValor('.')">.</button></td>
-                </tr>
-            </table>
-        </div>
+        <div class="conteudo-principal">
+            <!-- Adicionado ID e classe inicial para controle de estado -->
+            <div class="calculadora" id="calc-container">
+                <div class="controles-modo">
+                    <button class="btn-modo active" onclick="mudarModo('padrao', this)">Padrão</button>
+                    <button class="btn-modo" onclick="mudarModo('cientifica', this)">Científica</button>
+                </div>
 
+                <div class="visor">
+                    <p id="resultado" aria-live="polite"></p>
+                </div>
+
+                <div class="calc-body">
+                    <!-- Painel científico à esquerda -->
+                    <div id="painel-cientifico-toggle" class="painel-cientifica" style="display: none;">
+                        <div class="scientific-pad">
+                            <button class="btn-op" id="btn-deg" onclick="toggleAngleMode()" aria-label="Deg/Rad">Deg</button>
+                            <button id="btn-shift" onclick="toggleShift()" aria-pressed="false" aria-label="Funções hiperbólicas">2nd</button>
+                            <button class="btn-op" onclick="adicionarValor('(')" aria-label="Abrir parêntese">(</button>
+                            <button class="btn-op" onclick="adicionarValor(')')" aria-label="Fechar parêntese">)</button>
+
+                            <button class="btn-op" data-fn="sin(" data-alt="sinh(" onclick="adicionarValor(this.dataset.fn)">sin</button>
+                            <button class="btn-op" data-fn="cos(" data-alt="cosh(" onclick="adicionarValor(this.dataset.fn)">cos</button>
+                            <button class="btn-op" data-fn="tan(" data-alt="tanh(" onclick="adicionarValor(this.dataset.fn)">tan</button>
+                            <button class="btn-op" onclick="adicionarValor('!')">x!</button>
+                            
+                            <button class="btn-op" onclick="adicionarValor('asin(')">asin</button>
+                            <button class="btn-op" onclick="adicionarValor('acos(')">acos</button>
+                            <button class="btn-op" onclick="adicionarValor('atan(')">atan</button>
+                            <button class="btn-op" onclick="adicionarValor('π')">π</button>
+                            
+                            <button class="btn-op" onclick="adicionarValor('ln(')">ln</button>
+                            <button class="btn-op" onclick="adicionarValor('log(')">log</button>
+                            <button class="btn-op" onclick="adicionarValor('sqrt(')">√</button>
+                            <button class="btn-op" onclick="adicionarValor('^2')">x²</button>
+                            
+                            <button class="btn-op" onclick="adicionarValor('^3')">x³</button>
+                            <button class="btn-op" onclick="adicionarValor('^')">x^y</button>
+                            <button class="btn-op" onclick="adicionarValor('E')">EXP</button>
+                            <button class="btn-op" onclick="adicionarValor('exp(')">eˣ</button>
+                        </div>
+                    </div>
+
+                    <!-- Teclado numérico à direita (preservado) -->
+                    <div class="teclado">
+                        <div class="numeric-pad">
+                            <button class="btn-op" onclick="limpar()" aria-label="Limpar">C</button>
+                            <button class="btn-op" onclick="apagarUltimo()" aria-label="Apagar">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 5H9l-6 7 6 7h12z"/><path d="M17 9l-6 6M11 9l6 6"/></svg>
+                            </button>
+                            <button class="btn-op" onclick="adicionarValor('/')" aria-label="Dividir">÷</button>
+                            <button class="btn-op" onclick="adicionarValor('*')" aria-label="Multiplicar">×</button>
+
+                            <button onclick="adicionarValor('7')">7</button>
+                            <button onclick="adicionarValor('8')">8</button>
+                            <button onclick="adicionarValor('9')">9</button>
+                            <button class="btn-op" onclick="adicionarValor('-')" aria-label="Subtrair">−</button>
+
+                            <button onclick="adicionarValor('4')">4</button>
+                            <button onclick="adicionarValor('5')">5</button>
+                            <button onclick="adicionarValor('6')">6</button>
+                            <button class="btn-op" onclick="adicionarValor('+')">+</button>
+
+                            <button onclick="adicionarValor('1')">1</button>
+                            <button onclick="adicionarValor('2')">2</button>
+                            <button onclick="adicionarValor('3')">3</button>
+                            <button class="btn-igual" onclick="calcularResultado()">=</button>
+
+                            <button class="btn-zero" onclick="adicionarValor('0')">0</button>
+                            <button onclick="adicionarValor('.')">.</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
             
 
         <footer class="rodape">
