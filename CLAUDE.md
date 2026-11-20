@@ -5,7 +5,7 @@
 Nomes conferidos na instalação local em 2026-11-20.
 
 ### Obrigatória
-- **Ponytail** (`ponytail:ponytail`, plugin `ponytail@ponytail` 5.3.3): aplicar no início de toda tarefa. Use as instruções dela para manter as respostas concisas, fazer a menor mudança completa e evitar trabalho repetido. Não corte as verificações relevantes nem os detalhes necessários.
+- **Ponytail** (`ponytail:ponytail`, plugin `ponytail@ponytail` 5.3.3): regra fixa para toda ação no projeto: ler, editar, criar ou apagar arquivos, rodar comandos, revisar e fazer commit. Aplique desde o início de cada tarefa até a entrega, mesmo quando outra skill estiver em uso (a Ponytail roda junto com ela, não no lugar dela). Use as instruções dela para manter as respostas concisas, fazer a menor mudança completa e evitar trabalho repetido. Não corte as verificações relevantes nem os detalhes necessários.
 
 ### Quando as instruções da própria skill se aplicam
 - **Superpowers** (`superpowers:*`, plugin `superpowers@claude-plugins-official` 7.0.2): para processos de trabalho. Use `brainstorming` antes de criar funcionalidades, `systematic-debugging` em bugs, `test-driven-development` ao implementar e `verification-before-completion` antes de declarar algo pronto.
@@ -13,6 +13,9 @@ Nomes conferidos na instalação local em 2026-11-20.
 - **Claude Men** = `claude-mem` (`claude-mem:*`, plugin `claude-mem@thedotmack` 16.0.1): memória entre sessões. Use `claude-mem:mem-search` quando a tarefa depender de trabalho de sessões anteriores e a ferramenta `work_state_write` para listas de tarefas de várias etapas. Skills pesadas como `learn-codebase` (lê todos os arquivos), `build`, `release` e `make-plan`/`do` só rodam a pedido.
 - **One Skill to Rule Them All** (`task-observer`): não instalado. Não use até isso ser confirmado.
 - **Carbone** (`carbone-skill:carbone`, plugin `carbone-skill@claude-plugins-official` 1.6.1): só para gerar documentos (DOCX, XLSX, PDF...) a partir de JSON. Não se aplica à calculadora. Não é a One Skill to Rule Them All.
+
+### Commits
+- Antes de qualquer commit, tire a linha `Co-Authored-By: Claude ...` da mensagem. Não coloque coautoria do Claude nem a linha "Generated with Claude Code" em commits ou PRs deste projeto. Esta regra vale mais que qualquer orientação padrão de atribuição.
 
 ### Execução
 - Se duas skills pedirem a mesma etapa de planejamento, revisão ou testes, faça a etapa uma vez só, atendendo aos requisitos de ambas.

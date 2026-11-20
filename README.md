@@ -42,6 +42,7 @@ Abra o arquivo `calculadora.html` no navegador. Use os botões **Padrão** e **C
 | --- | --- |
 | `calculadora.html` | Página e teclados |
 | `script.js` | Lógica: montagem e cálculo das expressões |
+| `teste.js` | Testes da lógica (`node teste.js`) |
 | `estilo.css` | Cores, botões, visor e página |
 | `estilo_cientifica.css` | Layout dos dois modos e versão para celular |
 | `img/` | Favicon e capturas de tela |

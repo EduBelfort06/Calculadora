@@ -67,18 +67,20 @@ function apagarUltimo() {
 }
 
 // Conversões e helpers usados na transformação da expressão
+// π/180 não é exato: cos(90°) daria 6e-17 em vez de 0
+const zerarResiduo = v => Math.abs(v) < 1e-12 ? 0 : v;
 function sinf(x) {
     if (angleMode === 'deg') x = x * Math.PI / 180;
-    return Math.sin(x);
+    return zerarResiduo(Math.sin(x));
 }
 function cosf(x) {
     if (angleMode === 'deg') x = x * Math.PI / 180;
-    return Math.cos(x);
+    return zerarResiduo(Math.cos(x));
 }
 function tanf(x) {
     if (angleMode === 'deg' && Math.abs(x % 180) === 90) return NaN; // tan(90°) é indefinida
     if (angleMode === 'deg') x = x * Math.PI / 180;
-    return Math.tan(x);
+    return zerarResiduo(Math.tan(x));
 }
 function asinf(x) {
     let v = Math.asin(x);
@@ -207,7 +209,8 @@ function calcularResultado() {
             visor.innerText = "Erro";
         } else {
             // 12 dígitos significativos: tira lixo de ponto flutuante sem zerar números pequenos
-            visor.innerText = Number(resultadoFinal.toPrecision(12));
+            // "E" maiúsculo: o JS escreve 1e+21, mas a calculadora só entende "E" para continuar a conta
+            visor.innerText = String(Number(resultadoFinal.toPrecision(12))).toUpperCase();
         }
         novoCalculo = true;
     } catch (error) {
